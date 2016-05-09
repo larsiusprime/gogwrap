@@ -1,0 +1,5 @@
+sdk/
+native/include/gog/*.h
+native/lib/osx64/*.dylib
+native/lib/linux64/*.so
+native/lib/linux32/*.so

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+
+	<ndll name="gogwrap" />
+	<classpath name="gogwrap" />
+
+	<section if="windows">
+		<template path="native/lib/win32/Galaxy64.dll" rename="Galaxy64.dll"/>
+		<template path="native/lib/win32/GalaxyPeer64.dll" rename="GalaxyPeer64.dll"/>
+		
+		<!--<template path="templates/steam_appid.txt" rename="steam_appid.txt" unless="final"/>-->
+	</section>
+
+	<section if="linux">
+		<!-- Copies into both 32 and 64 bit folders because I haven't found a way to differentiate between them using conditionals in this file -->
+		<template path="native/lib/linux64/libGalaxy64.so" rename="../../../linux64/cpp/bin/libGalaxy64.so" />
+		<template path="native/lib/linux64/libGalaxyPeer64.so" rename="../../../linux64/cpp/bin/libGalaxyPeer64.so" />
+		<template path="native/lib/linux32/libGalaxy.so" rename="../../../linux/cpp/bin/libGalaxy.so" />
+		<template path="native/lib/linux32/libGalaxyPeer.so" rename="../../../linux/cpp/bin/libGalaxyPeer.so" />
+		
+		<!--<template path="templates/steam_appid.txt" rename="steam_appid.txt" unless="final"/>-->
+	</section>
+
+	<section if="mac">
+		<template path="native/lib/osx32/libGalaxy.dylib" rename="bin/${APP_FILE}.app/Contents/MacOS/libGalaxy.dylib" />
+		<template path="native/lib/osx32/libGalaxyPeer.dylib" rename="bin/${APP_FILE}.app/Contents/MacOS/libGalaxyPeer.dylib" />
+		
+		<!--<template path="templates/steam_appid.txt" rename="bin/${APP_FILE}.app/Contents/MacOS/steam_appid.txt" unless="final"/>-->
+	</section>
+
+</project>
